@@ -76,6 +76,11 @@ void show_table() {
         << (j <= M ? "" : "\n");
 }
 
+void clear_snake_on_table() {
+  for (int i = 1; i <= snake_size; ++i)
+    a[coordinates_x[i]][coordinates_y[i]] = ' ';
+}
+
 int main() {
   /* code */
   return 0;
