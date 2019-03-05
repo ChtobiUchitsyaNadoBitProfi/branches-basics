@@ -81,6 +81,19 @@ void clear_snake_on_table() {
     a[coordinates_x[i]][coordinates_y[i]] = ' ';
 }
 
+void show_snake_on_table() {
+  if (change_x == 1 && change_y == 0)
+    a[coordinates_x[1]][coordinates_y[1]] = 'v';
+  if (change_x == -1 && change_y == 0)
+    a[coordinates_x[1]][coordinates_y[1]] = '^';
+  if (change_x == 0 && change_y == 1)
+    a[coordinates_x[1]][coordinates_y[1]] = '>';
+  if (change_x == 0 && change_y == -1)
+    a[coordinates_x[1]][coordinates_y[1]] = '<';
+  for (int i = 2; i <= snake_size; ++i)
+    a[coordinates_x[i]][coordinates_y[i]] = '@';
+}
+
 int main() {
   /* code */
   return 0;
