@@ -94,6 +94,14 @@ void show_snake_on_table() {
     a[coordinates_x[i]][coordinates_y[i]] = '@';
 }
 
+bool game_over() {
+  for (int i = 2; i <= snake_size; ++i)
+    if (coordinates_x[1] == coordinates_x[i] &&
+        coordinates_y[1] == coordinates_y[i])
+      return true;
+  return false;
+}
+
 int main() {
   /* code */
   return 0;
