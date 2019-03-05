@@ -36,6 +36,31 @@ int food_x = -1, food_y = -1;
 char symbol, a[1000][1000];
 const int N = 13, M = 17, INTERVAL = 200;
 
+void change_direction() {
+  symbol = getch();
+  switch (symbol) {
+    case 'w': if (change_x != 1 || change_y != 0) {
+                change_x = -1; change_y = 0;
+              }
+              break;
+    case 'a': if (change_x != 0 || change_y != 1) {
+                change_x = 0; change_y = -1;
+              }
+              break;
+    case 's': if (change_x != -1 || change_y != 0) {
+                change_x = 1; change_y = 0;
+              }
+              break;
+    case 'd': if (change_x != 0 || change_y != -1) {
+                change_x = 0; change_y = 1;
+              }
+              break;
+#ifndef WINDOWS
+    case 'q': nonblock(NB_DISABLE); std::exit(0);
+#endif
+    default: break;
+  }
+}
 
 int main() {
   /* code */
