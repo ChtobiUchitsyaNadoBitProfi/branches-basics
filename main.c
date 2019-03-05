@@ -30,7 +30,14 @@ void nonblock(int state) {
   tcsetattr(STDIN_FILENO, TCSANOW, &ttystate);
 }
 
-int int main() {
+int getch() {
+  return fgetc(stdin);
+}
+
+#endif
+
+int main() {
   /* code */
   return 0;
 }
+ 
