@@ -62,6 +62,20 @@ void change_direction() {
   }
 }
 
+void show_table() {
+#ifdef WINDOWS
+  system("cls");
+#else
+  system("clear");
+#endif
+  for (int i = 0; i <= N + 1; ++i)
+    for (int j = 0; j <= M + 1; ++j)
+      std::cout
+        << (i == 0 || j == 0 || i == N + 1 || j == M + 1 ?
+           '#' : a[i][j])
+        << (j <= M ? "" : "\n");
+}
+
 int main() {
   /* code */
   return 0;
