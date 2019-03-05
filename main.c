@@ -14,19 +14,14 @@ int kbhit() {
 void nonblock(int state) {
   struct termios ttystate;
 
-  // Get the terminal state.
   tcgetattr(STDIN_FILENO, &ttystate);
 
   if (state == NB_ENABLE) {
-    // Turn off canonical mode.
     ttystate.c_lflag &= ~ICANON;
-    // Minimum of number input read.
     ttystate.c_cc[VMIN] = 1;
   } else if (state == NB_DISABLE) {
-    // Turn on canonical mode.
     ttystate.c_lflag |= ICANON;
   }
-  // Set the terminal attributes.
   tcsetattr(STDIN_FILENO, TCSANOW, &ttystate);
 }
 
@@ -35,6 +30,12 @@ int getch() {
 }
 
 #endif
+
+int snake_size, change_x, change_y, coordinates_x[1000], coordinates_y[1000];
+int food_x = -1, food_y = -1;
+char symbol, a[1000][1000];
+const int N = 13, M = 17, INTERVAL = 200;
+
 
 int main() {
   /* code */
